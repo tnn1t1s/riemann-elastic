@@ -1,0 +1,4 @@
+{:plugin "riemann-elastic"
+ :title "A plugin to allow riemann to output to elastic search"
+ :git-repo "https://github.com/tnn1t1s/riemann-elastic"
+ :require riemann.elastic}
