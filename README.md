@@ -24,4 +24,22 @@ This will start Riemann with the plugin available. You can load the plugin in ri
 (require '[riemann.elastic :as elastic])
 ```
 
+You can start pushing events to elastic search with the elastic/es-index function. Here's an snippet of a Riemann config that does the job.
+
+```clk
+(def myindex (default :ttl 300 (index)))
+
+(def elastic-url "http://localhost:9200")
+(def elastic-conn (when (seq elastic-url) (elastic/es-connect elastic-url)))
+
+(def standard-sink
+  (let [sinks (if elastic-conn
+                [myindex (async-queue! :elastic-search
+                                      {:queue-size 10000}
+                                      (batch 200 10 (elastic/es-index "riemann-elastic")))]
+                [myindex])]
+    (fn [e]
+      (call-rescue e sinks))))
+```
+
 
