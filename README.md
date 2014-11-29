@@ -42,4 +42,9 @@ You can start pushing events to elastic search with the elastic/es-index functio
       (call-rescue e sinks))))
 ```
 
+# Credit
+This project started as a fork of Kiries.
+    - https://github.com/threatgrid/kiries
+    
+Kiries bundles Riemann, Elastic Search and Kibana in single repository. It's awesome and really useful but proved difficult to integrate in my environment. I ripped out the Riemann Elastic bits and made it into a Riemann plugin.
 
