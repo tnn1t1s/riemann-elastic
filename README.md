@@ -45,6 +45,15 @@ You can start pushing events to elastic search with the elastic/es-index functio
 (streams prn standard-sink)
 ```
 
+## Elastic and Kibana
+With the riemann.config above, events should be persisted to Elastic Search. You can see the last 10 events indexed with the following curl command.
+
+```
+$ curl http://localhost:9200/_search?query=*
+```
+
+If that works, Kibana will work too. You can find Kibana here:
+     - http://www.elasticsearch.org/overview/kibana/
 # Credit
 This project started as a fork of Kiries.
     - https://github.com/threatgrid/kiries
