@@ -40,6 +40,9 @@ You can start pushing events to elastic search with the elastic/es-index functio
                 [myindex])]
     (fn [e]
       (call-rescue e sinks))))
+      
+; send everything to stdout and standard-sink e.g. elastic and the index.
+(streams prn standard-sink)
 ```
 
 # Credit
