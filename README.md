@@ -2,9 +2,12 @@
 
 Riemann Elastic is a Riemann plugin for indexing Riemann events in Elastic Search.
 
-## Installation
+Lein
+[org.tinnitus.dl/elastic-riemann "0.1.0-SNAPSHOT"]
 
-First, you'll need to build the plugin using lein
+## Installation from scratch.
+
+After cloning the repo, you can build the plugin using lein
 
 ```clj
 $ lein uberjar
