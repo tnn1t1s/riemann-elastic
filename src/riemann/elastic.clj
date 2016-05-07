@@ -60,11 +60,9 @@
         (for [[k v] event
               :when v]
           (cond
-           (= (name k) "_id") [k v]
-           (.startsWith (name k) "_")
-           [(.substring (name k) 1) (edn-safe-read v)]
-           :else
-           [k v]))))
+            (= (name k) "_id") [k v]
+            (.startsWith (name k) "_") [(subs (name k) 1) (edn-safe-read v)]
+            :else [k v]))))
 
 (defn ^{:private true} elastic-event [event massage]
   (let [e (-> event
